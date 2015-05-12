@@ -1,0 +1,252 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace Riamu
+{
+    class Program
+    {
+        public static int highScore = 0;
+
+        static void Main(string[] args)
+        {
+            ConsoleColor oldColour = Console.ForegroundColor;
+            storyBegin();
+            Console.ReadLine();
+            Console.ForegroundColor = oldColour;
+        }
+
+        static void storyBegin()
+        {
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Welcome to the world of Riamu");
+            Thread.Sleep(1000);
+            Console.WriteLine("Choose your class;");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Mage");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Warrior");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Archer");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Scrub");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            string answerClass = Console.ReadLine();
+            if (answerClass == "Scrub" || answerClass == "scrub")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You have been brutally 360 no scoped goodbye");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                endGame();
+            }
+            if (answerClass == "Mage" || answerClass == "mage")
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("You have chosen 'Mage'");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyMage();
+            }
+            if (answerClass == "Warrior" || answerClass == "warrior")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("You have chosen 'Warrior'");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyWarrior();
+            }
+            if (answerClass == "Archer" || answerClass == "archer")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("You have chosen 'Archer'");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyArcher();
+            }
+        }
+
+        static void storyMage()
+        {
+            Thread.Sleep(1000);
+            Console.WriteLine("'Your knowledge and wisdom prove to be your deadliest weapon'");
+
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Now begins your adventure");
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("You come across a path which leads in multiple directions:");
+            Thread.Sleep(1000);
+            Console.WriteLine("1) The path to the left follows the banks of a small, slow moving creek");
+            Thread.Sleep(1000);
+            Console.WriteLine("2) Straight ahead leads into a deep forest, it's shadows too dark to see past");
+            Thread.Sleep(1000);
+            Console.WriteLine("3) To the right is an old bridge, it's foundations appear to be centuries old");
+            Thread.Sleep(1000);
+            Console.WriteLine("Which direction do you choose? Left, Right or Straight?");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            string magePath = Console.ReadLine();
+            if (magePath == "Left" || magePath == "left")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You somehow fall into the water and drown");
+                endGame();
+            }
+            if (magePath == "Straight" || magePath == "straight")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You are savagely mauled by muggers waiting for someone to pass by");
+                endGame();
+            }
+            if (magePath == "Right" || magePath == "right")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("The bridge maintains it's structure just long enough for you to safely cross");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyMageChoiceOne();
+            }
+        }
+
+        static void storyMageChoiceOne()
+        {
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("You continue on the path for some time and come across a small town");
+            Thread.Sleep(1000);
+            Console.WriteLine("Do you stop to stock up on supplies?");
+            Console.WriteLine("Yes/No");
+            Console.ForegroundColor = ConsoleColor.White;
+            string mageTown = Console.ReadLine();
+            if (mageTown == "Yes" || mageTown == "yes")
+            {
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyMageChoiceTwo();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You continue on the path for miles but come across nothing, you die of starvation");
+                endGame();
+            }
+        }
+
+        static void storyMageChoiceTwo()
+        {
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("You are met by a gatekeeper with a riddle");
+            Console.WriteLine("You must answer correctly to gain access to the town");
+            Thread.Sleep(1000);
+            Console.WriteLine("If I drink, I die. If I eat, I am fine. What am I?");
+            Console.WriteLine("Machinery, Locusts or Fire?");
+            Console.ForegroundColor = ConsoleColor.White;
+            string mageTown = Console.ReadLine();
+
+            if (mageTown == "Fire" || mageTown == "fire")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("You answer correctly and the gates to the town are opened");
+                string myNumber = "s" + highScore.ToString("00");
+                highScore++;
+                storyMageChoiceThree();
+            }
+            if (mageTown == "Machinery" || mageTown == "machinery")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You have answered incorrectly. As a result you are stabbed by the gatekeeper");
+                endGame();
+            }
+            if (mageTown == "Locusts" || mageTown == "locusts")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You have answered incorrectly. As a result you are stabbed by the gatekeeper");
+                endGame();
+            }
+
+        }
+
+        static void storyMageChoiceThree()
+        {
+                Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("You enter the town and collect the supplies your require");
+                Thread.Sleep(1000);
+                Console.WriteLine("As you exit the town, you notice something following you");
+                Thread.Sleep(1000);
+                Console.WriteLine("It follows at a distance just far back enough not to track immediate suspicion");
+                Thread.Sleep(1000);
+                Console.WriteLine("You assume it is nothing and continue along the path");
+                Thread.Sleep(1000);
+                Console.WriteLine("As you make camp for the night you hear rustling in the nearby bushes");
+                Thread.Sleep(1000);
+                Console.WriteLine("The figure that followed from the town appears with a blade in hand");
+                Thread.Sleep(1000);
+                Console.WriteLine("The bandit demands food and in return will spare your life");
+                Thread.Sleep(1000);
+                Console.WriteLine("How do you deal with the situation?");
+                Thread.Sleep(1000);
+                Console.WriteLine("1) Give up some food you purchased from the town");
+                Thread.Sleep(1000);
+                Console.WriteLine("2) Confront the bandit and hope to defeat him");
+
+            Console.ForegroundColor = ConsoleColor.White;
+            string mageBandit = Console.ReadLine();
+            
+            if (mageBandit == "Confront" || mageBandit == "confront")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("As you stopped for supplies you are well rested and are able to defeat the bandit");
+                endGame();
+            }
+            if (mageBandit == "Food" || mageBandit == "food")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("The you give the bandit some food and he goes on his way");
+                endGame();
+            }
+        }
+
+        static void storyWarrior()
+        {
+            Console.WriteLine("Your strength and combat skills are second to none");
+            endGame();
+        }
+
+        static void storyArcher()
+        {
+            Console.WriteLine("You are as deadly with a bow and arrow from 1000 yards as you are from 10");
+            endGame();
+        }
+
+        static void endGame()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Thread.Sleep(500);
+            Console.WriteLine("Your time in Riamu has ended, farewell traveller");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("You gained {0} point(s) in this journey", highScore);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Type 'Restart' to begin your journey again");
+            Console.ForegroundColor = ConsoleColor.White;
+            string restartGame = Console.ReadLine();
+            if (restartGame == "Restart" || restartGame == "restart")
+            {
+                Console.Clear();
+                storyBegin();
+            }
+            else
+            {
+                System.Environment.Exit(1);
+            }
+        }
+    }
+}
